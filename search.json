@@ -39,7 +39,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
+    "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025a. “Harnessing LLMs for Data Analysis.” YouTube. https://www.youtube.com/watch?v=owDd1CJ17uQ.\n\n\n———. 2025b. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nTurner, Stephen. 2025. “The Modern r Stack for Production Ai.” The Modern R Stack for Production AI - by Stephen Turner. Paired Ends. https://blog.stephenturner.us/p/r-production-ai.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
   },
   {
     "objectID": "partials/schedule.html",
