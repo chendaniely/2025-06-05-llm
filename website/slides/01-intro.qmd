@@ -3,9 +3,6 @@ title: "Welcome and Introduction"
 format:
   revealjs:
     smaller: true
-    theme:
-      - brand
-    css: styles.css
     slide-number: true
     chalkboard: true
 
