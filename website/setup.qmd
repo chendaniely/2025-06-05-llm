@@ -2,6 +2,27 @@
 title: Setup
 ---
 
+## R + Python
+
+1. Clone this repository: <https://github.com/chendaniely/2025-06-05-llm>
+```bash
+git clone https://github.com/chendaniely/2025-06-05-llm.git
+git clone git@github.com:chendaniely/2025-06-05-llm.git
+```
+
+2. Use the provided `requirements.txt` and `renv.lock` file to create the virtual environments
+    - R: you can use the `setup-r` `Makefile` target
+    - Python: if you have `uv` installed (<https://docs.astral.sh/uv/>) you can also use the `setup-python` target
+    - There is a convenience `make setup` target that combines both for you
+
+```bash
+make setup
+```
+
+## IDE
+
+I'm using Positron: <https://positron.posit.co/>, but feel free to use VS Code and/or RStudio
+
 ## Local LLM: Ollama
 
 1. Download Ollama: <https://ollama.com/>
