@@ -1,0 +1,7 @@
+---
+title: "slide 1"
+format:
+  revealjs:
+    smaller: true
+    slide-number: true
+---
