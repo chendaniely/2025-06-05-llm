@@ -4,14 +4,28 @@
     "href": "setup.html",
     "title": "Setup",
     "section": "",
-    "text": "Download Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4:128x17b\n245GB\nhttps://ollama.com/library/llama4\nollama run llama4:128x17b"
+    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
+  },
+  {
+    "objectID": "setup.html#r-python",
+    "href": "setup.html#r-python",
+    "title": "Setup",
+    "section": "",
+    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
+  },
+  {
+    "objectID": "setup.html#ide",
+    "href": "setup.html#ide",
+    "title": "Setup",
+    "section": "IDE",
+    "text": "IDE\nI’m using Positron: https://positron.posit.co/, but feel free to use VS Code and/or RStudio"
   },
   {
     "objectID": "setup.html#local-llm-ollama",
     "href": "setup.html#local-llm-ollama",
     "title": "Setup",
-    "section": "",
-    "text": "Download Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4:128x17b\n245GB\nhttps://ollama.com/library/llama4\nollama run llama4:128x17b"
+    "section": "Local LLM: Ollama",
+    "text": "Local LLM: Ollama\n\nDownload Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4:128x17b\n245GB\nhttps://ollama.com/library/llama4\nollama run llama4:128x17b"
   },
   {
     "objectID": "setup.html#optional-chat-provider-with-api",

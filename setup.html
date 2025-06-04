@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -147,7 +182,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#local-llm-ollama" id="toc-local-llm-ollama" class="nav-link active" data-scroll-target="#local-llm-ollama">Local LLM: Ollama</a></li>
+  <li><a href="#r-python" id="toc-r-python" class="nav-link active" data-scroll-target="#r-python">R + Python</a></li>
+  <li><a href="#ide" id="toc-ide" class="nav-link" data-scroll-target="#ide">IDE</a></li>
+  <li><a href="#local-llm-ollama" id="toc-local-llm-ollama" class="nav-link" data-scroll-target="#local-llm-ollama">Local LLM: Ollama</a></li>
   <li><a href="#optional-chat-provider-with-api" id="toc-optional-chat-provider-with-api" class="nav-link" data-scroll-target="#optional-chat-provider-with-api">(Optional): Chat provider with API</a>
   <ul class="collapse">
   <li><a href="#claude" id="toc-claude" class="nav-link" data-scroll-target="#claude">Claude</a></li>
@@ -179,6 +216,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="r-python" class="level2">
+<h2 class="anchored" data-anchor-id="r-python">R + Python</h2>
+<ol type="1">
+<li>Clone this repository: <a href="https://github.com/chendaniely/2025-06-05-llm" class="uri">https://github.com/chendaniely/2025-06-05-llm</a></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/chendaniely/2025-06-05-llm.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:chendaniely/2025-06-05-llm.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Use the provided <code>requirements.txt</code> and <code>renv.lock</code> file to create the virtual environments
+<ul>
+<li>R: you can use the <code>setup-r</code> <code>Makefile</code> target</li>
+<li>Python: if you have <code>uv</code> installed (<a href="https://docs.astral.sh/uv/" class="uri">https://docs.astral.sh/uv/</a>) you can also use the <code>setup-python</code> target</li>
+<li>There is a convenience <code>make setup</code> target that combines both for you</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> setup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ide" class="level2">
+<h2 class="anchored" data-anchor-id="ide">IDE</h2>
+<p>I’m using Positron: <a href="https://positron.posit.co/" class="uri">https://positron.posit.co/</a>, but feel free to use VS Code and/or RStudio</p>
+</section>
 <section id="local-llm-ollama" class="level2">
 <h2 class="anchored" data-anchor-id="local-llm-ollama">Local LLM: Ollama</h2>
 <ol type="1">
