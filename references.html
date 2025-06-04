@@ -198,6 +198,9 @@ Chen, Daniel. 2025. <span>“<span>PyCon 2025 Booth Demos</span>.”</span> <a h
 <div id="ref-joellm" class="csl-entry" role="listitem">
 Cheng, Joe. 2025. <span>“<span>LLM Quickstart</span>.”</span> <a href="https://github.com/jcheng5/llm-quickstart">https://github.com/jcheng5/llm-quickstart</a>.
 </div>
+<div id="ref-pyshiny-genai" class="csl-entry" role="listitem">
+Shiny. 2025. <em>Shiny for Python Generative AI Documentation</em>. <a href="https://shiny.posit.co/py/docs/genai-inspiration.html">https://shiny.posit.co/py/docs/genai-inspiration.html</a>.
+</div>
 <div id="ref-hadleyllm" class="csl-entry" role="listitem">
 Wickham, Hadley. 2025. <span>“<span>Workshop LLM Hackathon</span>.”</span> <a href="https://github.com/hadley/workshop-llm-hackathon">https://github.com/hadley/workshop-llm-hackathon</a>.
 </div>
@@ -279,7 +282,7 @@ Wickham, Hadley. 2025. <span>“<span>Workshop LLM Hackathon</span>.”</span> <
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/chendaniely\.github\.io\/2025-06-05-llm\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
