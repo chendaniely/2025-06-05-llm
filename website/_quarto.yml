@@ -1,0 +1,49 @@
+project:
+  type: website
+  preview:
+    port: 9708
+    watch-inputs: true
+
+
+website:
+  title: "Intro to LLMs"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+    right:
+      - href: references.qmd
+      - icon: github
+        href: https://github.com/chendaniely/2025-06-05-llm
+
+
+  page-footer: |
+    <a href="https://github.com/chendaniely/2025-06-05-llm">chendaniely/2025-06-05-llm</a>
+
+  repo-url: https://github.com/chendaniely/2025-06-05-llm
+  repo-subdir: website
+  repo-actions: [edit, issue]
+
+  sidebar:
+    - style: docked
+      type: light
+      background: light
+      foreground: dark
+      contents:
+      - href: overview.qmd
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+    toc-expand: 2
+
+editor:
+  render-on-save: true
+
+brand: _brand.yml
