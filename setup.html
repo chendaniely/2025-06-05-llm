@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intro to LLMs</title>
+<title>Setup – Intro to LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,11 +125,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./setup.html"> 
+    <a class="nav-link active" href="./setup.html" aria-current="page"> 
 <span class="menu-text">Setup</span></a>
   </li>  
 </ul>
@@ -119,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intro to LLMs</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Setup</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -142,13 +177,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#local-llm-ollama" id="toc-local-llm-ollama" class="nav-link active" data-scroll-target="#local-llm-ollama">Local LLM: Ollama</a></li>
+  <li><a href="#optional-chat-provider-with-api" id="toc-optional-chat-provider-with-api" class="nav-link" data-scroll-target="#optional-chat-provider-with-api">(Optional): Chat provider with API</a>
+  <ul class="collapse">
+  <li><a href="#claude" id="toc-claude" class="nav-link" data-scroll-target="#claude">Claude</a></li>
+  <li><a href="#gemini" id="toc-gemini" class="nav-link" data-scroll-target="#gemini">Gemini</a></li>
+  <li><a href="#openai" id="toc-openai" class="nav-link" data-scroll-target="#openai">OpenAI</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/chendaniely/2025-06-05-llm/edit/main/website/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/chendaniely/2025-06-05-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intro to LLMs</h1>
+<h1 class="title">Setup</h1>
 </div>
 
 
@@ -165,9 +214,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon.</p>
+<section id="local-llm-ollama" class="level2">
+<h2 class="anchored" data-anchor-id="local-llm-ollama">Local LLM: Ollama</h2>
+<ol type="1">
+<li>Download Ollama: <a href="https://ollama.com/" class="uri">https://ollama.com/</a></li>
+<li>Pick one of the many llama models on their model page: <a href="https://ollama.com/search" class="uri">https://ollama.com/search</a>.
+<ul>
+<li><a href="https://privacymatters.ubc.ca/i-want/safe-deepseek-ubc">UBC has a restriction on DeekSeek</a></li>
+<li>Pick any random model that will fit on your computer</li>
+<li>You can pick multiple models if you’d like, we will compare results during workshop.</li>
+<li>A few example models with model sizes:
+<ul>
+<li><code>qwen</code> 5.2GB (<a href="https://ollama.com/library/qwen3:latest" class="uri">https://ollama.com/library/qwen3:latest</a>)</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>Phi 4 mini</code> 3.2GB (<a href="https://ollama.com/library/phi4-reasoning" class="uri">https://ollama.com/library/phi4-reasoning</a>)</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run phi4-mini-reasoning</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>devstral</code> 14GB (<a href="https://ollama.com/library/devstral" class="uri">https://ollama.com/library/devstral</a>)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run devstral</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+</ol>
+</section>
+<section id="optional-chat-provider-with-api" class="level2">
+<h2 class="anchored" data-anchor-id="optional-chat-provider-with-api">(Optional): Chat provider with API</h2>
+<section id="claude" class="level3">
+<h3 class="anchored" data-anchor-id="claude">Claude</h3>
+<ol type="1">
+<li>Sign up at <a href="https://console.anthropic.com" class="uri">https://console.anthropic.com</a>.</li>
+<li>Load up enough credit so you won’t be sad if something goes wrong.</li>
+<li>Create a key at <a href="https://console.anthropic.com/settings/keys" class="uri">https://console.anthropic.com/settings/keys</a></li>
+</ol>
+</section>
+<section id="gemini" class="level3">
+<h3 class="anchored" data-anchor-id="gemini">Gemini</h3>
+<ol type="1">
+<li>Log in to <a href="https://aistudio.google.com" class="uri">https://aistudio.google.com</a> with a google account</li>
+<li>Click create API key &amp; copy it to the clipboard.</li>
+</ol>
+</section>
+<section id="openai" class="level3">
+<h3 class="anchored" data-anchor-id="openai">OpenAI</h3>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -577,7 +671,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p><a href="https://github.com/chendaniely/2025-06-05-llm">chendaniely/2025-06-05-llm</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/chendaniely/2025-06-05-llm/edit/main/website/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/chendaniely/2025-06-05-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/chendaniely/2025-06-05-llm/edit/main/website/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/chendaniely/2025-06-05-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
