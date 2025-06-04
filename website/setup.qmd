@@ -10,18 +10,14 @@ title: Setup
     - Pick any random model that will fit on your computer
     - You can pick multiple models if you'd like, we will compare results during workshop.
     - A few example models with model sizes:
-      - `qwen` 5.2GB (<https://ollama.com/library/qwen3:latest>)
-```bash
-ollama run qwen3
-```
-      - `Phi 4 mini` 3.2GB (<https://ollama.com/library/phi4-reasoning>)
-```bash
-ollama run phi4-mini-reasoning
-```
-      - `devstral` 14GB (<https://ollama.com/library/devstral>)
-```bash
-ollama run devstral
-```
+
+| Model          | Download Size | URL                                         | Install Command                  |
+| -------------- | ------------- | ------------------------------------------- | -------------------------------- |
+| qwen3:0.6b     | 523MB         | <https://ollama.com/library/qwen3>          | `ollama run qwen3:0.6b`          |
+| qwen           | 5.2GB         | -                                           | `ollama run qwen3`               |
+| Phi 4 mini     | 3.2GB         | <https://ollama.com/library/phi4-reasoning> | `ollama run phi4-mini-reasoning` |
+| devstral       | 14GB          | <https://ollama.com/library/devstral>       | `ollama run devstral`            |
+| llama4:128x17b | 245GB         | <https://ollama.com/library/llama4>         | `ollama run llama4:128x17b`      |
 
 ## (Optional): Chat provider with API
 
