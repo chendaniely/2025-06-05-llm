@@ -4,14 +4,14 @@
     "href": "setup.html",
     "title": "Setup",
     "section": "",
-    "text": "Download Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\nqwen 5.2GB (https://ollama.com/library/qwen3:latest)\n\nollama run qwen3\n\nPhi 4 mini 3.2GB (https://ollama.com/library/phi4-reasoning)\n\nollama run phi4-mini-reasoning\n\ndevstral 14GB (https://ollama.com/library/devstral)\n\nollama run devstral"
+    "text": "Download Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4:128x17b\n245GB\nhttps://ollama.com/library/llama4\nollama run llama4:128x17b"
   },
   {
     "objectID": "setup.html#local-llm-ollama",
     "href": "setup.html#local-llm-ollama",
     "title": "Setup",
     "section": "",
-    "text": "Download Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\nqwen 5.2GB (https://ollama.com/library/qwen3:latest)\n\nollama run qwen3\n\nPhi 4 mini 3.2GB (https://ollama.com/library/phi4-reasoning)\n\nollama run phi4-mini-reasoning\n\ndevstral 14GB (https://ollama.com/library/devstral)\n\nollama run devstral"
+    "text": "Download Ollama: https://ollama.com/\nPick one of the many llama models on their model page: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nA few example models with model sizes:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4:128x17b\n245GB\nhttps://ollama.com/library/llama4\nollama run llama4:128x17b"
   },
   {
     "objectID": "setup.html#optional-chat-provider-with-api",

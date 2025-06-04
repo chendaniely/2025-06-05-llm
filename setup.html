@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -223,21 +188,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://privacymatters.ubc.ca/i-want/safe-deepseek-ubc">UBC has a restriction on DeekSeek</a></li>
 <li>Pick any random model that will fit on your computer</li>
 <li>You can pick multiple models if you’d like, we will compare results during workshop.</li>
-<li>A few example models with model sizes:
-<ul>
-<li><code>qwen</code> 5.2GB (<a href="https://ollama.com/library/qwen3:latest" class="uri">https://ollama.com/library/qwen3:latest</a>)</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run qwen3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>Phi 4 mini</code> 3.2GB (<a href="https://ollama.com/library/phi4-reasoning" class="uri">https://ollama.com/library/phi4-reasoning</a>)</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run phi4-mini-reasoning</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>devstral</code> 14GB (<a href="https://ollama.com/library/devstral" class="uri">https://ollama.com/library/devstral</a>)</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run devstral</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>A few example models with model sizes:</li>
 </ul></li>
 </ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Download Size</th>
+<th>URL</th>
+<th>Install Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>qwen3:0.6b</td>
+<td>523MB</td>
+<td><a href="https://ollama.com/library/qwen3" class="uri">https://ollama.com/library/qwen3</a></td>
+<td><code>ollama run qwen3:0.6b</code></td>
+</tr>
+<tr class="even">
+<td>qwen</td>
+<td>5.2GB</td>
+<td>-</td>
+<td><code>ollama run qwen3</code></td>
+</tr>
+<tr class="odd">
+<td>Phi 4 mini</td>
+<td>3.2GB</td>
+<td><a href="https://ollama.com/library/phi4-reasoning" class="uri">https://ollama.com/library/phi4-reasoning</a></td>
+<td><code>ollama run phi4-mini-reasoning</code></td>
+</tr>
+<tr class="even">
+<td>devstral</td>
+<td>14GB</td>
+<td><a href="https://ollama.com/library/devstral" class="uri">https://ollama.com/library/devstral</a></td>
+<td><code>ollama run devstral</code></td>
+</tr>
+<tr class="odd">
+<td>llama4:128x17b</td>
+<td>245GB</td>
+<td><a href="https://ollama.com/library/llama4" class="uri">https://ollama.com/library/llama4</a></td>
+<td><code>ollama run llama4:128x17b</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="optional-chat-provider-with-api" class="level2">
 <h2 class="anchored" data-anchor-id="optional-chat-provider-with-api">(Optional): Chat provider with API</h2>
