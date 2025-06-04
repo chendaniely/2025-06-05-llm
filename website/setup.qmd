@@ -26,11 +26,11 @@ I'm using Positron: <https://positron.posit.co/>, but feel free to use VS Code a
 ## Local LLM: Ollama
 
 1. Download Ollama: <https://ollama.com/>
-2. Pick one of the many llama models on their model page: <https://ollama.com/search>.
+2. Pick one of the many llama models on their model page from: <https://ollama.com/search>.
     - [UBC has a restriction on DeekSeek](https://privacymatters.ubc.ca/i-want/safe-deepseek-ubc)
     - Pick any random model that will fit on your computer
     - You can pick multiple models if you'd like, we will compare results during workshop.
-    - A few example models with model sizes:
+    - Here are a few example models with their download sizes you can try:
 
 | Model          | Download Size | URL                                         | Install Command                  |
 | -------------- | ------------- | ------------------------------------------- | -------------------------------- |
