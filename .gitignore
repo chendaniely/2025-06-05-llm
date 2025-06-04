@@ -1,4 +1,6 @@
 .quarto
+/.quarto/
+
 _site/
 
 # Byte-compiled / optimized / DLL files
@@ -225,5 +227,3 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
-
-/.quarto/
