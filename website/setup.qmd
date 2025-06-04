@@ -38,7 +38,8 @@ I'm using Positron: <https://positron.posit.co/>, but feel free to use VS Code a
 | qwen           | 5.2GB         | -                                           | `ollama run qwen3`               |
 | Phi 4 mini     | 3.2GB         | <https://ollama.com/library/phi4-reasoning> | `ollama run phi4-mini-reasoning` |
 | devstral       | 14GB          | <https://ollama.com/library/devstral>       | `ollama run devstral`            |
-| llama4:128x17b | 245GB         | <https://ollama.com/library/llama4>         | `ollama run llama4:128x17b`      |
+| llama4         | 67GB          | <https://ollama.com/library/llama4>         | `ollama run llama4`              |
+| llama4:128x17b | 245GB         | -                                           | `ollama run llama4:128x17b`      |
 
 ## (Optional): Chat provider with API
 
