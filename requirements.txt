@@ -1,0 +1,13 @@
+anthropic[bedrock]
+boto3
+chatlas
+langchain
+langchain-anthropic
+langchain-openai
+langgraph
+openai
+pillow
+python-dotenv
+requests
+shiny
+tokenizers
