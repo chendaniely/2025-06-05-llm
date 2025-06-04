@@ -48,16 +48,10 @@ jobs:
       #     curl -LsSf https://astral.sh/uv/install.sh | sh
       #     uv pip install --system -r requirements.txt
 
-      - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          path: website
-
-      - name: Publish to GitHub Pages
+      - name: Render and Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          render: false
-          path: website/_site
+          path: website
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
