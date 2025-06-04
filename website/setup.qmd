@@ -1,0 +1,39 @@
+---
+title: Setup
+---
+
+## Local LLM: Ollama
+
+1. Download Ollama: <https://ollama.com/>
+2. Pick one of the many llama models on their model page: <https://ollama.com/search>.
+    - [UBC has a restriction on DeekSeek](https://privacymatters.ubc.ca/i-want/safe-deepseek-ubc)
+    - Pick any random model that will fit on your computer
+    - You can pick multiple models if you'd like, we will compare results during workshop.
+    - A few example models with model sizes:
+      - `qwen` 5.2GB (<https://ollama.com/library/qwen3:latest>)
+```bash
+ollama run qwen3
+```
+      - `Phi 4 mini` 3.2GB (<https://ollama.com/library/phi4-reasoning>)
+```bash
+ollama run phi4-mini-reasoning
+```
+      - `devstral` 14GB (<https://ollama.com/library/devstral>)
+```bash
+ollama run devstral
+```
+
+## (Optional): Chat provider with API
+
+### Claude
+
+1. Sign up at <https://console.anthropic.com>.
+2. Load up enough credit so you won't be sad if something goes wrong.
+3. Create a key at <https://console.anthropic.com/settings/keys>
+
+### Gemini
+
+1. Log in to <https://aistudio.google.com> with a google account
+2. Click create API key & copy it to the clipboard.
+
+### OpenAI

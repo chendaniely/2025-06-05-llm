@@ -11,12 +11,12 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: setup.qmd
 
     right:
       - href: references.qmd
       - icon: github
         href: https://github.com/chendaniely/2025-06-05-llm
-
 
   page-footer: |
     <a href="https://github.com/chendaniely/2025-06-05-llm">chendaniely/2025-06-05-llm</a>
@@ -43,7 +43,9 @@ format:
     toc: true
     toc-expand: 2
 
+
 editor:
   render-on-save: true
+
 
 brand: _brand.yml
