@@ -21,3 +21,7 @@ setup:
 clean:
 	rm -rf venv
 	rm -rf renv/library
+
+.PHONY: publish
+publish:
+	quarto publish gh-pages website
