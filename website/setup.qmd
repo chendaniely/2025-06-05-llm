@@ -43,15 +43,19 @@ I'm using Positron: <https://positron.posit.co/>, but feel free to use VS Code a
 
 ## (Optional): Chat provider with API
 
-### Claude
+If you pay for Claude, OpenAI, etc access with their web/desktop application,
+this is a separate purchase for the API key.
+Depending on your usage, you may even find that paying for the API key could be cheaper!
+
+### Anthropic Claude
 
 1. Sign up at <https://console.anthropic.com>.
 2. Load up enough credit so you won't be sad if something goes wrong.
 3. Create a key at <https://console.anthropic.com/settings/keys>
 
-### Gemini
+### Google Gemini
 
 1. Log in to <https://aistudio.google.com> with a google account
 2. Click create API key & copy it to the clipboard.
 
-### OpenAI
+### OpenAI ChatGPT
