@@ -15,7 +15,7 @@ Me sharing my experiences with LLMs and what I know so far from participating in
 | 14:35 | [Your first chat with an LLM](030-first.qmd)                  |
 | 15:20 | *break*                                                       |
 | 15:30 | [AI Chat Interfaces](050-chatbot.qmd)                         |
-| 15:45 | Tool Calling                                                  |
+| 15:45 | [Tool Calling](060-tools.qmd)                                 |
 | 16:00 | *End* / Wrap up / [Dan's AI Hackathon Demo][dan-ai-hackathon] |
 :::
 
