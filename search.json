@@ -1,5 +1,185 @@
 [
   {
+    "objectID": "slides/030-first.html#working-with-an-llm",
+    "href": "slides/030-first.html#working-with-an-llm",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Working with an LLM",
+    "text": "Working with an LLM\nMany different chat providers\n\nOpenAI ChatGPT\nAnthropic Claude\nGoogle Gemini\nxAI Grok\nMeta Llama\n\netc…"
+  },
+  {
+    "objectID": "slides/030-first.html#demo-openai-chatgpt",
+    "href": "slides/030-first.html#demo-openai-chatgpt",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Demo: OpenAI ChatGPT",
+    "text": "Demo: OpenAI ChatGPT\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()  # Loads OPENAI_API_KEY from the .env file\n\n# Creates an OpenAI client, which can be used to access any OpenAI service\n# (including Whisper and DALL-E, not just chat models). It's totally stateless.\nclient = OpenAI()\n\n# The initial set of messages we'll start the conversation with: a system\n# prompt and a user prompt.\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\n# Call out to the OpenAI API to generate a response. (This is a blocking call,\n# but there are ways to do async, streaming, and async streaming as well.)\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\n\n# Print the response we just received.\nprint(response.choices[0].message.content)\n# If you want to inspect the full response, you can do so by uncommenting the\n# following line. The .dict() is helpful in getting more readable output.\n# pprint(response.dict())\n\n# The client.chat.completions.create() call is stateless. In order to carry on a\n# multi-turn conversation, we need to keep track of the messages we've sent and\n# received.\nmessages.append(response.choices[0].message)\n\n# Ask a followup question.\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()"
+  },
+  {
+    "objectID": "slides/030-first.html#github-models",
+    "href": "slides/030-first.html#github-models",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "GitHub Models",
+    "text": "GitHub Models\nGitHub Models: https://github.com/marketplace/models\n\n\n\n\n\nFree tiers of all the latest models\nPlayground to tinker with them\n\n\nhttps://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits"
+  },
+  {
+    "objectID": "slides/030-first.html#you-try-openai-github-models",
+    "href": "slides/030-first.html#you-try-openai-github-models",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "You try: OpenAI / GitHub Models",
+    "text": "You try: OpenAI / GitHub Models\n\n  \n    −\n    +\n \n 05:00\n \n\n\n\n\n\n\nNote\n\n\nMake sure you have created a GitHub PAT (you do not need any specific context)\n\n\n\nimport os\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\n\n# arguments passed switch to using GitHub models\nclient = OpenAI(\n  api_key=os.environ[\"GITHUB_TOKEN\"],\n  base_url=\"https://models.inference.ai.azure.com\"\n)\n\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\nprint(response.choices[0].message.content)\n\nmessages.append(response.choices[0].message)\n\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()"
+  },
+  {
+    "objectID": "slides/030-first.html#educator-developer-blog",
+    "href": "slides/030-first.html#educator-developer-blog",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Educator Developer Blog",
+    "text": "Educator Developer Blog\nHow to use any Python AI agent framework with free GitHub Models"
+  },
+  {
+    "objectID": "slides/030-first.html#demo-langchain",
+    "href": "slides/030-first.html#demo-langchain",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Demo: Langchain",
+    "text": "Demo: Langchain\nfrom dotenv import load_dotenv\nfrom langchain_core.chat_history import InMemoryChatMessageHistory\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder\nfrom langchain_core.runnables.history import RunnableWithMessageHistory\nfrom langchain_openai import ChatOpenAI\n\nload_dotenv()  # Loads OPENAI_API_KEY from the .env file\n\n# Create an OpenAI chat model, with conversation history.\n# See https://python.langchain.com/docs/tutorials/chatbot/ for more information.\n\n# The underlying chat model. It doesn't manage any state, so we need to wrap it.\nmodel = ChatOpenAI(model=\"gpt-4.1\")\n\n# This is how you provide a system message in Langchain. Surprisingly\n# complicated, isn't it?\nprompt = ChatPromptTemplate.from_messages(\n    [\n        SystemMessage(\"You are a terse assistant.\"),\n        MessagesPlaceholder(variable_name=\"messages\"),\n    ]\n)\n\n# Wrap the model and prompt up with some history.\nhistory = InMemoryChatMessageHistory()\nclient = RunnableWithMessageHistory(prompt | model, lambda: history)\n\n# We're ready to chat with the model now. For this example we'll make a blocking\n# call, but there are ways to do async, streaming, and async streaming as well.\nresponse = client.invoke(\"What is the capital of the moon?\")\nprint(response.content)\n\n# The input of invoke() can be a message object as well, or a list of messages.\nresponse2 = client.invoke(HumanMessage(\"Are you sure?\"))\nprint(response2.content)"
+  },
+  {
+    "objectID": "slides/030-first.html#different-chat-apis",
+    "href": "slides/030-first.html#different-chat-apis",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Different chat APIs",
+    "text": "Different chat APIs\nEach Chat API can have a different JSON payload, functions, ways to construct the chat history, etc…"
+  },
+  {
+    "objectID": "slides/030-first.html#chatlas-ellmer",
+    "href": "slides/030-first.html#chatlas-ellmer",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Chatlas + Ellmer",
+    "text": "Chatlas + Ellmer\n\n\nPython\n\nhttps://posit-dev.github.io/chatlas/\n\nR\n\nhttps://ellmer.tidyverse.org/"
+  },
+  {
+    "objectID": "slides/010-welcome.html#install-setup",
+    "href": "slides/010-welcome.html#install-setup",
+    "title": "Welcome",
+    "section": "Install + Setup",
+    "text": "Install + Setup\nTake a look at the workshop website and go through the setup instructions: https://github.com/chendaniely/2025-06-05-llm\nUrl is at the bottom of all the slides.\n\nClone this repo\nInstall your R + Python packages\nDownload at least one of the Ollama models, I provided a few to pick from. Feel free to pick any other one.\n(Optional) use the .env.template file to provide your API key into .env\n\n\n\n\n\n\n\nNote\n\n\nIf you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!"
+  },
+  {
+    "objectID": "slides/010-welcome.html#passing-along-what-i-learned",
+    "href": "slides/010-welcome.html#passing-along-what-i-learned",
+    "title": "Welcome",
+    "section": "Passing along what I learned",
+    "text": "Passing along what I learned\n\nJoe will do a better job than I can, but I can demo you code today.\nhttps://www.youtube.com/watch?v=owDd1CJ17uQ"
+  },
+  {
+    "objectID": "slides/010-welcome.html#poll-experience-with-llms",
+    "href": "slides/010-welcome.html#poll-experience-with-llms",
+    "title": "Welcome",
+    "section": "Poll: Experience with LLMs",
+    "text": "Poll: Experience with LLMs\n\nUsed an LLM before (ChatGPT/Claude/Ollama desktop/web application)?\nUsed it for a homework assignment?\nMDS: Using for capstone?\nTasks outside of school work?\nSkeptical about LLMs/AI (1-2 out of 5)? Why?\nNeutral about LLMs/AI (3 out of 5)? Why?\nEnthusiastic about LLMs/AI (4-5 out of 5)? Why?"
+  },
+  {
+    "objectID": "slides/010-welcome.html#today",
+    "href": "slides/010-welcome.html#today",
+    "title": "Welcome",
+    "section": "Today",
+    "text": "Today\n\nMDS: taught you how things work behind the scenes (transformers!)\nToday, we will treat LLMs as black boxes\nPractical introduction\nGet some hands on practice to demystify using them\n\nMDS: Maybe you can throw in something extra for the end of your capstone projects?"
+  },
+  {
+    "objectID": "slides/010-welcome.html#goal",
+    "href": "slides/010-welcome.html#goal",
+    "title": "Welcome",
+    "section": "Goal",
+    "text": "Goal\nQuick Start course on LLMs. You will leave having used a Chat API.\n\nMDS: if you made something cool from what you learned today, share it in #llm-workshop-hackathon\n\nDoesn’t have to be “successful”\nWe’re just here trying to make cool things\nShare so we can learn about the limitations\n\nDSCI 100: We can always chat during office hours"
+  },
+  {
+    "objectID": "slides/010-welcome.html#security",
+    "href": "slides/010-welcome.html#security",
+    "title": "Welcome",
+    "section": "Security",
+    "text": "Security\n\nDO NOT send proprietary code or data to any LLM, unless you are sure IT policies allow it\nLocal models (e.g., Ollama) typically perform worse than frontier models"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025a. “Harnessing LLMs for Data Analysis.” YouTube. https://www.youtube.com/watch?v=owDd1CJ17uQ.\n\n\n———. 2025b. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nTurner, Stephen. 2025. “The Modern r Stack for Production Ai.” The Modern R Stack for Production AI - by Stephen Turner. Paired Ends. https://blog.stephenturner.us/p/r-production-ai.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
+  },
+  {
+    "objectID": "030-first.html",
+    "href": "030-first.html",
+    "title": "Your first chat with an LLM",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Your first chat with an LLM"
+    ]
+  },
+  {
+    "objectID": "010-welcome.html",
+    "href": "010-welcome.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "020-anatomy.html",
+    "href": "020-anatomy.html",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Intro to LLMs",
+    "section": "",
+    "text": "Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon.\n\n\n\n\nTime\nActivity\n\n\n\n\n13:30\nWelcome! Introduction and overview\n\n\n13:45\nAnatomy of a conversation\n\n\n14:20\nbreak\n\n\n14:30\nDemo: 20 Questions\n\n\n14:35\nYour first chat with an LLM 🗣️🤖\n\n\n15:20\nbreak\n\n\n15:30\nDemos 1\n\n\n16:00\nbreak / Finished\n\n\n16:00\nNow you try\n\n\n16:30\nEnd"
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
+    "section": "",
+    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
+  },
+  {
+    "objectID": "setup.html#r-python",
+    "href": "setup.html#r-python",
+    "title": "Setup",
+    "section": "",
+    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
+  },
+  {
+    "objectID": "setup.html#ide",
+    "href": "setup.html#ide",
+    "title": "Setup",
+    "section": "IDE",
+    "text": "IDE\nI’m using Positron: https://positron.posit.co/, but feel free to use VS Code and/or RStudio"
+  },
+  {
+    "objectID": "setup.html#local-llm-ollama",
+    "href": "setup.html#local-llm-ollama",
+    "title": "Setup",
+    "section": "Local LLM: Ollama",
+    "text": "Local LLM: Ollama\n\nDownload Ollama: https://ollama.com/\nPick one of the many llama models on their model page from: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nHere are a few example models with their download sizes you can try:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4\n67GB\nhttps://ollama.com/library/llama4\nollama run llama4\n\n\nllama4:128x17b\n245GB\n-\nollama run llama4:128x17b"
+  },
+  {
+    "objectID": "setup.html#optional-chat-provider-with-api",
+    "href": "setup.html#optional-chat-provider-with-api",
+    "title": "Setup",
+    "section": "(Optional): Chat provider with API",
+    "text": "(Optional): Chat provider with API\nIf you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!\n\nAnthropic Claude\n\nSign up at https://console.anthropic.com.\nLoad up enough credit so you won’t be sad if something goes wrong.\nCreate a key at https://console.anthropic.com/settings/keys\n\n\n\nGoogle Gemini\n\nLog in to https://aistudio.google.com with a google account\nClick create API key & copy it to the clipboard.\n\n\n\nOpenAI ChatGPT"
+  },
+  {
     "objectID": "slides/020-anatomy.html#llm-conversations-are-http-requests",
     "href": "slides/020-anatomy.html#llm-conversations-are-http-requests",
     "title": "Anatomy of a Conversation",
@@ -75,118 +255,5 @@
     "title": "Anatomy of a Conversation",
     "section": "Context window - chat history",
     "text": "Context window - chat history\n200k tokens seems like a lot of context…\n\n… but the entire chat is passed along each chat iteration\n{\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n{\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n{\"role\": \"assistant\", \"content\": \"The moon does not have a capital. It is not inhabited or governed.\"},\n{\"role\": \"user\", \"content\": \"Are you sure?\"},\n{\"role\": \"assistant\", \"content\": \"Yes, I am sure. The moon has no capital or formal governance.\"}"
-  },
-  {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Setup",
-    "section": "",
-    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
-  },
-  {
-    "objectID": "setup.html#r-python",
-    "href": "setup.html#r-python",
-    "title": "Setup",
-    "section": "",
-    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
-  },
-  {
-    "objectID": "setup.html#ide",
-    "href": "setup.html#ide",
-    "title": "Setup",
-    "section": "IDE",
-    "text": "IDE\nI’m using Positron: https://positron.posit.co/, but feel free to use VS Code and/or RStudio"
-  },
-  {
-    "objectID": "setup.html#local-llm-ollama",
-    "href": "setup.html#local-llm-ollama",
-    "title": "Setup",
-    "section": "Local LLM: Ollama",
-    "text": "Local LLM: Ollama\n\nDownload Ollama: https://ollama.com/\nPick one of the many llama models on their model page from: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nHere are a few example models with their download sizes you can try:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4\n67GB\nhttps://ollama.com/library/llama4\nollama run llama4\n\n\nllama4:128x17b\n245GB\n-\nollama run llama4:128x17b"
-  },
-  {
-    "objectID": "setup.html#optional-chat-provider-with-api",
-    "href": "setup.html#optional-chat-provider-with-api",
-    "title": "Setup",
-    "section": "(Optional): Chat provider with API",
-    "text": "(Optional): Chat provider with API\nIf you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!\n\nAnthropic Claude\n\nSign up at https://console.anthropic.com.\nLoad up enough credit so you won’t be sad if something goes wrong.\nCreate a key at https://console.anthropic.com/settings/keys\n\n\n\nGoogle Gemini\n\nLog in to https://aistudio.google.com with a google account\nClick create API key & copy it to the clipboard.\n\n\n\nOpenAI ChatGPT"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Intro to LLMs",
-    "section": "",
-    "text": "Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon.\n\n\n\n\nTime\nActivity\n\n\n\n\n13:30\nWelcome!\n\n\n13:45\nIntroduction and overview\n\n\n13:45\nAnatomy of a conversation\n\n\n14:20\nbreak\n\n\n14:30\nLLM Packages: Chatlas + Elmer\n\n\n15:20\nbreak\n\n\n15:30\nDemos 1\n\n\n16:00\nbreak / Finished\n\n\n16:00\nNow you try\n\n\n16:30\nEnd"
-  },
-  {
-    "objectID": "010-welcome.html",
-    "href": "010-welcome.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Home",
-      "Welcome"
-    ]
-  },
-  {
-    "objectID": "020-anatomy.html",
-    "href": "020-anatomy.html",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Home",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025a. “Harnessing LLMs for Data Analysis.” YouTube. https://www.youtube.com/watch?v=owDd1CJ17uQ.\n\n\n———. 2025b. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nTurner, Stephen. 2025. “The Modern r Stack for Production Ai.” The Modern R Stack for Production AI - by Stephen Turner. Paired Ends. https://blog.stephenturner.us/p/r-production-ai.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
-  },
-  {
-    "objectID": "slides/010-welcome.html#install-setup",
-    "href": "slides/010-welcome.html#install-setup",
-    "title": "Welcome",
-    "section": "Install + Setup",
-    "text": "Install + Setup\nTake a look at the workshop website and go through the setup instructions: https://github.com/chendaniely/2025-06-05-llm\nUrl is at the bottom of all the slides.\n\nClone this repo\nInstall your R + Python packages\nDownload at least one of the Ollama models, I provided a few to pick from. Feel free to pick any other one.\n(Optional) use the .env.template file to provide your API key into .env\n\n\n\n\n\n\n\nNote\n\n\nIf you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!"
-  },
-  {
-    "objectID": "slides/010-welcome.html#passing-along-what-i-learned",
-    "href": "slides/010-welcome.html#passing-along-what-i-learned",
-    "title": "Welcome",
-    "section": "Passing along what I learned",
-    "text": "Passing along what I learned\n\nJoe will do a better job than I can, but I can demo you code today.\nhttps://www.youtube.com/watch?v=owDd1CJ17uQ"
-  },
-  {
-    "objectID": "slides/010-welcome.html#poll-experience-with-llms",
-    "href": "slides/010-welcome.html#poll-experience-with-llms",
-    "title": "Welcome",
-    "section": "Poll: Experience with LLMs",
-    "text": "Poll: Experience with LLMs\n\nUsed an LLM before (ChatGPT/Claude/Ollama desktop/web application)?\nUsed it for a homework assignment?\nMDS: Using for capstone?\nTasks outside of school work?\nSkeptical about LLMs/AI (1-2 out of 5)? Why?\nNeutral about LLMs/AI (3 out of 5)? Why?\nEnthusiastic about LLMs/AI (4-5 out of 5)? Why?"
-  },
-  {
-    "objectID": "slides/010-welcome.html#today",
-    "href": "slides/010-welcome.html#today",
-    "title": "Welcome",
-    "section": "Today",
-    "text": "Today\n\nMDS: taught you how things work behind the scenes (transformers!)\nToday, we will treat LLMs as black boxes\nPractical introduction\nGet some hands on practice to demystify using them\n\nMDS: Maybe you can throw in something extra for the end of your capstone projects?"
-  },
-  {
-    "objectID": "slides/010-welcome.html#goal",
-    "href": "slides/010-welcome.html#goal",
-    "title": "Welcome",
-    "section": "Goal",
-    "text": "Goal\nQuick Start course on LLMs. You will leave having used a Chat API.\n\nMDS: if you made something cool from what you learned today, share it in #llm-workshop-hackathon\n\nDoesn’t have to be “successful”\nWe’re just here trying to make cool things\nShare so we can learn about the limitations\n\nDSCI 100: We can always chat during office hours"
-  },
-  {
-    "objectID": "slides/010-welcome.html#security",
-    "href": "slides/010-welcome.html#security",
-    "title": "Welcome",
-    "section": "Security",
-    "text": "Security\n\nDO NOT send proprietary code or data to any LLM, unless you are sure IT policies allow it\nLocal models (e.g., Ollama) typically perform worse than frontier models"
   }
 ]
