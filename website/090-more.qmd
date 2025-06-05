@@ -15,4 +15,7 @@ title: More resources
 - Shiny for Python GenAI concepts: <br>
   <https://shiny.posit.co/py/docs/genai-inspiration.html>
 
+- Large Language Model tools for R book: <br>
+  <https://luisdva.github.io/llmsr-book/>
+
 A few more on the [References](references.qmd) page.
