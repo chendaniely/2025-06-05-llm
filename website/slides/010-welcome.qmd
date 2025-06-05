@@ -9,11 +9,6 @@ format:
       MDS AI Mini-Workshop. 2025.
       <https://github.com/chendaniely/2025-06-05-llm>
 
-    # generate token here: https://reveal-multiplex.glitch.me/
-    # multiplex:
-    #   secret: ''
-    #   id: ''
-
 editor:
   render-on-save: true
 ---
