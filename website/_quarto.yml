@@ -40,6 +40,7 @@ website:
       - href: 030-first.qmd
       - href: 040-models.qmd
       - href: 050-chatbot.qmd
+      - href: 060-tools.qmd
       - href: 090-more.qmd
 
 
