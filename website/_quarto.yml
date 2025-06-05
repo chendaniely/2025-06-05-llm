@@ -35,9 +35,9 @@ website:
       background: light
       foreground: dark
       contents:
-      - text: "Slides"
       - href: 010-welcome.qmd
       - href: 020-anatomy.qmd
+      - href: 030-first.qmd
 
 
 format:
