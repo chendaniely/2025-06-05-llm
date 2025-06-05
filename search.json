@@ -121,12 +121,12 @@
   {
     "objectID": "010-welcome.html",
     "href": "010-welcome.html",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Home",
-      "Welcome!"
+      "Welcome"
     ]
   },
   {
@@ -150,42 +150,42 @@
   {
     "objectID": "slides/010-welcome.html#install-setup",
     "href": "slides/010-welcome.html#install-setup",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "Install + Setup",
     "text": "Install + Setup\nTake a look at the workshop website and go through the setup instructions: https://github.com/chendaniely/2025-06-05-llm\nUrl is at the bottom of all the slides.\n\nClone this repo\nInstall your R + Python packages\nDownload at least one of the Ollama models, I provided a few to pick from. Feel free to pick any other one.\n(Optional) use the .env.template file to provide your API key into .env\n\n\n\n\n\n\n\nNote\n\n\nIf you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!"
   },
   {
     "objectID": "slides/010-welcome.html#passing-along-what-i-learned",
     "href": "slides/010-welcome.html#passing-along-what-i-learned",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "Passing along what I learned",
     "text": "Passing along what I learned\n\nJoe will do a better job than I can, but I can demo you code today.\nhttps://www.youtube.com/watch?v=owDd1CJ17uQ"
   },
   {
     "objectID": "slides/010-welcome.html#poll-experience-with-llms",
     "href": "slides/010-welcome.html#poll-experience-with-llms",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "Poll: Experience with LLMs",
     "text": "Poll: Experience with LLMs\n\nUsed an LLM before (ChatGPT/Claude/Ollama desktop/web application)?\nUsed it for a homework assignment?\nMDS: Using for capstone?\nTasks outside of school work?\nSkeptical about LLMs/AI (1-2 out of 5)? Why?\nNeutral about LLMs/AI (3 out of 5)? Why?\nEnthusiastic about LLMs/AI (4-5 out of 5)? Why?"
   },
   {
     "objectID": "slides/010-welcome.html#today",
     "href": "slides/010-welcome.html#today",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "Today",
     "text": "Today\n\nMDS: taught you how things work behind the scenes (transformers!)\nToday, we will treat LLMs as black boxes\nPractical introduction\nGet some hands on practice to demystify using them\n\nMDS: Maybe you can throw in something extra for the end of your capstone projects?"
   },
   {
     "objectID": "slides/010-welcome.html#goal",
     "href": "slides/010-welcome.html#goal",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "Goal",
     "text": "Goal\nQuick Start course on LLMs. You will leave having used a Chat API.\n\nMDS: if you made something cool from what you learned today, share it in #llm-workshop-hackathon\n\nDoesn’t have to be “successful”\nWe’re just here trying to make cool things\nShare so we can learn about the limitations\n\nDSCI 100: We can always chat during office hours"
   },
   {
     "objectID": "slides/010-welcome.html#security",
     "href": "slides/010-welcome.html#security",
-    "title": "Welcome!",
+    "title": "Welcome",
     "section": "Security",
     "text": "Security\n\nDO NOT send proprietary code or data to any LLM, unless you are sure IT policies allow it\nLocal models (e.g., Ollama) typically perform worse than frontier models"
   }
