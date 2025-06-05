@@ -126,6 +126,39 @@
     "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025a. “Harnessing LLMs for Data Analysis.” YouTube. https://www.youtube.com/watch?v=owDd1CJ17uQ.\n\n\n———. 2025b. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nTurner, Stephen. 2025. “The Modern r Stack for Production Ai.” The Modern R Stack for Production AI - by Stephen Turner. Paired Ends. https://blog.stephenturner.us/p/r-production-ai.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
   },
   {
+    "objectID": "090-more.html",
+    "href": "090-more.html",
+    "title": "More resources",
+    "section": "",
+    "text": "Hadley Wickham’s LLM hackathon slides:  https://github.com/hadley/workshop-llm-hackathon\nJoe Cheng’s LLM Quickstart Hackathon slides:  https://github.com/jcheng5/llm-quickstart\nStephen Turner’s overview of all of the AI tools in R:  https://blog.stephenturner.us/p/r-production-ai\nChatlas articles (e.g., RAG):  https://posit-dev.github.io/chatlas/rag.html\nShiny for Python GenAI concepts:  https://shiny.posit.co/py/docs/genai-inspiration.html\n\nA few more on the References page.",
+    "crumbs": [
+      "Home",
+      "More resources"
+    ]
+  },
+  {
+    "objectID": "020-anatomy.html",
+    "href": "020-anatomy.html",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "010-welcome.html",
+    "href": "010-welcome.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Welcome"
+    ]
+  },
+  {
     "objectID": "030-first.html",
     "href": "030-first.html",
     "title": "Your first chat with an LLM",
@@ -148,33 +181,11 @@
     ]
   },
   {
-    "objectID": "010-welcome.html",
-    "href": "010-welcome.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Home",
-      "Welcome"
-    ]
-  },
-  {
-    "objectID": "020-anatomy.html",
-    "href": "020-anatomy.html",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Home",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Intro to LLMs",
     "section": "",
-    "text": "Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon.\n\n\n\n\nTime\nActivity\n\n\n\n\n13:30\nWelcome! Introduction and overview\n\n\n13:45\nAnatomy of a conversation\n\n\n14:20\nbreak\n\n\n14:30\nDemo: 20 Questions\n\n\n14:35\nYour first chat with an LLM 🗣️🤖\n\n\n15:20\nbreak\n\n\n15:30\nDemos 1\n\n\n16:00\nbreak / Finished\n\n\n16:00\nNow you try\n\n\n16:30\nEnd"
+    "text": "Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon.\n\n\n\n\nTime\nActivity\n\n\n\n\n13:30\nWelcome! Introduction and overview\n\n\n13:45\nAnatomy of a conversation\n\n\n14:20\nbreak\n\n\n14:30\nDemo: 20 Questions\n\n\n14:35\nYour first chat with an LLM 🗣️🤖\n\n\n15:20\nbreak\n\n\n15:30\nAI\n\n\n16:00\nEnd / Wrap up"
   },
   {
     "objectID": "setup.html",
