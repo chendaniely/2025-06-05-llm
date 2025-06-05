@@ -21,11 +21,11 @@
     "text": "GitHub Models\nGitHub Models: https://github.com/marketplace/models\n\n\n\n\n\nFree tiers of all the latest models\nPlayground to tinker with them\n\n\nhttps://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits"
   },
   {
-    "objectID": "slides/030-first.html#your-turn-openai-github-models",
-    "href": "slides/030-first.html#your-turn-openai-github-models",
+    "objectID": "slides/030-first.html#your-turn-openai-github",
+    "href": "slides/030-first.html#your-turn-openai-github",
     "title": "Your first chat with an LLM 🗣️🤖",
-    "section": "Your turn: OpenAI / GitHub Models",
-    "text": "Your turn: OpenAI / GitHub Models\n\n  \n    −\n    +\n \n 05:00\n \n\n\n\n\n\n\nNote\n\n\nMake sure you have created a GitHub PAT (you do not need any specific context)\n\n\n\nimport os\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\n\n# arguments passed switch to using GitHub models\nclient = OpenAI(\n  api_key=os.environ[\"GITHUB_TOKEN\"],\n  base_url=\"https://models.inference.ai.azure.com\"\n)\n\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\nprint(response.choices[0].message.content)\n\nmessages.append(response.choices[0].message)\n\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()"
+    "section": "Your turn: OpenAI / GitHub",
+    "text": "Your turn: OpenAI / GitHub\n\n  \n    −\n    +\n \n 05:00\n \n\n\n\n\n\n\nNote\n\n\nMake sure you have created a GitHub PAT (you do not need any specific context)\n\n\n\nimport os\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\n\n# arguments passed switch to using GitHub models\nclient = OpenAI(\n  api_key=os.environ[\"GITHUB_TOKEN\"],\n  base_url=\"https://models.inference.ai.azure.com\"\n)\n\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\nprint(response.choices[0].message.content)\n\nmessages.append(response.choices[0].message)\n\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()"
   },
   {
     "objectID": "slides/030-first.html#educator-developer-blog",

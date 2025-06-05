@@ -51,7 +51,7 @@ GitHub Models: <https://github.com/marketplace/models>
 <https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits>
 
 
-## Your turn: OpenAI / GitHub Models {footer=false}
+## Your turn: OpenAI / GitHub {footer=false}
 
 {{< countdown "5:00" play_sound="true">}}
 
