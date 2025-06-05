@@ -14,10 +14,8 @@ Me sharing my experiences with LLMs and what I know so far from participating in
 | 14:30 | [Demo: 20 Questions][demo20q]                         |
 | 14:35 | [Your first chat with an LLM 🗣️🤖](030-first.qmd)     |
 | 15:20 | *break*                                               |
-| 15:30 | Demos 1                                               |
-| 16:00 | *break* / Finished                                    |
-| 16:00 | Now you try                                           |
-| 16:30 | End                                                   |
+| 15:30 | AI                                                |
+| 16:00 | *End* / Wrap up                                       |
 :::
 
 [demo20q]: https://github.com/chendaniely/2025-06-05-llm/blob/main/demo/20-questions/app.R
