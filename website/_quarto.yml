@@ -37,6 +37,7 @@ website:
       contents:
       - text: "Slides"
       - href: 010-welcome.qmd
+      - href: 020-anatomy.qmd
 
 
 format:
