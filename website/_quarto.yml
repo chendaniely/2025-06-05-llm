@@ -3,7 +3,11 @@ project:
   preview:
     port: 9708
     watch-inputs: true
-
+  render:
+    - "./*.qmd"
+    - "slides/*.qmd"
+  resources:
+    - slides
 
 website:
   title: "Intro to LLMs"
@@ -32,6 +36,7 @@ website:
       foreground: dark
       contents:
       - href: overview.qmd
+      - href: 010-welcome.qmd
 
 
 format:
