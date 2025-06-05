@@ -4,3 +4,18 @@ toc: false
 ---
 
 Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon.
+
+:::{.column-body}
+| Time  | Activity                      |
+| :---- | :---------------------------- |
+| 13:30 | Welcome!                      |
+| 13:45 | Introduction and overview     |
+| 13:45 | Anatomy of a conversation     |
+| 14:20 | *break*                       |
+| 14:30 | LLM Packages: Chatlas + Elmer |
+| 15:20 | *break*                       |
+| 15:30 | Demos 1                       |
+| 16:00 | *break* / Finished            |
+| 16:00 | Now you try                   |
+| 16:30 | End                           |
+:::

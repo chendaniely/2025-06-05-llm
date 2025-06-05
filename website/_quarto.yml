@@ -35,7 +35,7 @@ website:
       background: light
       foreground: dark
       contents:
-      - href: overview.qmd
+      - text: "Slides"
       - href: 010-welcome.qmd
 
 
