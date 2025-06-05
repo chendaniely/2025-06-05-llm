@@ -14,7 +14,9 @@ setup-r:
 
 .PHONY: setup-quarto
 setup-quarto:
-	cd website && quarto add coatless-quarto/embedio
+	cd website && \
+		quarto add --no-prompt coatless-quarto/embedio && \
+		quarto add --no-prompt gadenbuie/countdown/quarto
 
 .PHONY: setup
 setup:
