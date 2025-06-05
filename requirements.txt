@@ -12,3 +12,4 @@ requests
 shiny
 tokenizers
 shinychat
+querychat @ git+https://github.com/posit-dev/querychat#subdirectory=python-package
