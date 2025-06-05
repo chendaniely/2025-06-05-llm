@@ -137,28 +137,6 @@
     ]
   },
   {
-    "objectID": "020-anatomy.html",
-    "href": "020-anatomy.html",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Home",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "010-welcome.html",
-    "href": "010-welcome.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Home",
-      "Welcome"
-    ]
-  },
-  {
     "objectID": "030-first.html",
     "href": "030-first.html",
     "title": "Your first chat with an LLM",
@@ -178,6 +156,39 @@
     "crumbs": [
       "Home",
       "Your first chat with an LLM"
+    ]
+  },
+  {
+    "objectID": "010-welcome.html",
+    "href": "010-welcome.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "020-anatomy.html",
+    "href": "020-anatomy.html",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "040-models.html",
+    "href": "040-models.html",
+    "title": "Choosing a model",
+    "section": "",
+    "text": "Provider\nModel\nDescription\nNotes\nTakeaway\n\n\n\n\nOpenAI\nGPT-4.1\nGood general-purpose model\n1 million token context length\nGood models for general-purpose use\n\n\nOpenAI\nGPT-4.1-mini\nFaster, cheaper, and dumber version of GPT-4.1\n\n\n\n\nOpenAI\nGPT-4.1-nano\nEven faster, cheaper, and dumber\n\n\n\n\nOpenAI\no3\nBetter at complex math and coding\nSlower and more expensive\n\n\n\nOpenAI\no4-mini\nReasoning model, not as strong as o3\nCheaper than GPT-4.1\n\n\n\nOpenAI\nAPI\nAccess via OpenAI or Azure\nOpenAI, Azure\n\n\n\nAnthropic\nClaude 3.7 Sonnet\nGood general-purpose model\nBest for code generation\nBest model for code generation\n\n\nAnthropic\nClaude 3.5 Sonnet v2\nOlder but still excellent\nSome prefer it to 3.7\n\n\n\nAnthropic\nClaude 3.5 Haiku\nFaster, cheaper, and dumber\n\n\n\n\nAnthropic\nAPI\nAccess via Anthropic or AWS Bedrock\nAnthropic, AWS Bedrock\n\n\n\nGoogle\nGemini 2.0 Flash\nVery fast\n1 million token context length\nLargest context length — good for big input\n\n\nGoogle\nGemini 2.0 Pro\nSmarter than Flash\n2 million token context length\n\n\n\nLLaMA\nLLaMA 3.1 405b\nText-only\n229GB, not as smart as best closed models\nGood for on-premise/local use\n\n\nLLaMA\nLLaMA 3.2 90b\nText + vision\n55GB\n\n\n\nLLaMA\nLLaMA 3.2 11b\nText + vision\n7.9GB, can run on a MacBook\n\n\n\nLLaMA\nOpen weights + API access\nCan run locally\nVia Ollama, OpenRouter, Groq, AWS Bedrock\n\n\n\nDeepSeek\nDeepSeek R1 671b\nUses chain of thought\n404GB, claimed similar performance to OpenAI o1\n\n\n\nDeepSeek\nDeepSeek R1 32b\nSmaller variant\n20GB, not actually DeepSeek architecture, significantly worse\n\n\n\nDeepSeek\nDeepSeek R1 70b\nMid-size variant\n43GB, not actually DeepSeek architecture\n\n\n\nDeepSeek\nOpen weights + API access\nCan run locally\nVia DeepSeek, OpenRouter\n\n\n\n\n\nTable values taken from Joe Cheng’s LLM Quickstart and converted into a table using ChatGPT.",
+    "crumbs": [
+      "Home",
+      "Choosing a model"
     ]
   },
   {
