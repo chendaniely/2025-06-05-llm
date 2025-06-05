@@ -21,11 +21,11 @@
     "text": "GitHub Models\nGitHub Models: https://github.com/marketplace/models\n\n\n\n\n\nFree tiers of all the latest models\nPlayground to tinker with them\n\n\nhttps://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits"
   },
   {
-    "objectID": "slides/030-first.html#you-try-openai-github-models",
-    "href": "slides/030-first.html#you-try-openai-github-models",
+    "objectID": "slides/030-first.html#your-turn-openai-github-models",
+    "href": "slides/030-first.html#your-turn-openai-github-models",
     "title": "Your first chat with an LLM 🗣️🤖",
-    "section": "You try: OpenAI / GitHub Models",
-    "text": "You try: OpenAI / GitHub Models\n\n  \n    −\n    +\n \n 05:00\n \n\n\n\n\n\n\nNote\n\n\nMake sure you have created a GitHub PAT (you do not need any specific context)\n\n\n\nimport os\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\n\n# arguments passed switch to using GitHub models\nclient = OpenAI(\n  api_key=os.environ[\"GITHUB_TOKEN\"],\n  base_url=\"https://models.inference.ai.azure.com\"\n)\n\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\nprint(response.choices[0].message.content)\n\nmessages.append(response.choices[0].message)\n\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()"
+    "section": "Your turn: OpenAI / GitHub Models",
+    "text": "Your turn: OpenAI / GitHub Models\n\n  \n    −\n    +\n \n 05:00\n \n\n\n\n\n\n\nNote\n\n\nMake sure you have created a GitHub PAT (you do not need any specific context)\n\n\n\nimport os\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\n\n# arguments passed switch to using GitHub models\nclient = OpenAI(\n  api_key=os.environ[\"GITHUB_TOKEN\"],\n  base_url=\"https://models.inference.ai.azure.com\"\n)\n\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\nprint(response.choices[0].message.content)\n\nmessages.append(response.choices[0].message)\n\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()"
   },
   {
     "objectID": "slides/030-first.html#educator-developer-blog",
@@ -53,7 +53,28 @@
     "href": "slides/030-first.html#chatlas-ellmer",
     "title": "Your first chat with an LLM 🗣️🤖",
     "section": "Chatlas + Ellmer",
-    "text": "Chatlas + Ellmer\n\n\nPython\n\nhttps://posit-dev.github.io/chatlas/\n\nR\n\nhttps://ellmer.tidyverse.org/"
+    "text": "Chatlas + Ellmer\nUnify the prompt creation process and steps\n\n\nPython\n\nhttps://posit-dev.github.io/chatlas/\n\nR\n\nhttps://ellmer.tidyverse.org/"
+  },
+  {
+    "objectID": "slides/030-first.html#demo-chatlas-ellmer-openai",
+    "href": "slides/030-first.html#demo-chatlas-ellmer-openai",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Demo: Chatlas + Ellmer (OpenAI)",
+    "text": "Demo: Chatlas + Ellmer (OpenAI)\nPython Chatlas\nfrom chatlas import ChatOpenAI\nfrom dotenv import load_dotenv\n\nload_dotenv()  # Loads OPENAI_API_KEY from the .env file\n\nchat = ChatOpenAI(model=\"gpt-4.1\", system_prompt=\"You are a terse assistant.\")\n\nchat.chat(\"What is the capital of the moon?\")\n\nchat.chat(\"Are you sure?\")\nR Ellmer\nlibrary(dotenv) # Will read OPENAI_API_KEY from .env file\nlibrary(ellmer)\n\nchat &lt;- chat_openai(\n  model = \"gpt-4.1\",\n  system_prompt = \"You are a terse assistant.\",\n)\nchat$chat(\"What is the capital of the moon?\")\n\n# The `chat` object is stateful, so this continues the existing conversation\nchat$chat(\"Are you sure about that?\")"
+  },
+  {
+    "objectID": "slides/030-first.html#demo-chatlas-ellmer-claude",
+    "href": "slides/030-first.html#demo-chatlas-ellmer-claude",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Demo: Chatlas + Ellmer (Claude)",
+    "text": "Demo: Chatlas + Ellmer (Claude)\nPython Chatlas\nfrom chatlas import ChatAnthropic\nfrom dotenv import load_dotenv\n\nload_dotenv()\n\nchat = ChatAnthropic(model=\"claude-3-7-sonnet-latest\", system_prompt=\"You are a terse assistant.\")\n\nchat.chat(\"What is the capital of the moon?\")\n\nchat.chat(\"Are you sure?\")\nR Ellmer\nlibrary(dotenv)\nlibrary(ellmer)\n\nchat &lt;- chat_openai(\n  model = \"claude-sonnet-4-20250514\",\n  system_prompt = \"You are a terse assistant.\",\n)\nchat$chat(\"What is the capital of the moon?\")\n\nchat$chat(\"Are you sure about that?\")"
+  },
+  {
+    "objectID": "slides/030-first.html#your-turn-chatlas-ellmer-github",
+    "href": "slides/030-first.html#your-turn-chatlas-ellmer-github",
+    "title": "Your first chat with an LLM 🗣️🤖",
+    "section": "Your turn: Chatlas Ellmer GitHub",
+    "text": "Your turn: Chatlas Ellmer GitHub\n\n  \n    −\n    +\n \n 10:00\n \nPython Chatlas\nimport os\n\nfrom chatlas import ChatGithub\nfrom dotenv import load_dotenv\n\nload_dotenv()\n\nchat = ChatGithub(\n    model=\"gpt-4.1\",\n    system_prompt=\"You are a terse assistant.\",\n    api_key=os.getenv(\"GITHUB_PAT\"),\n)\n\nchat.chat(\"What is the capital of the moon?\")\nchat.chat(\"Are you sure?\")\nR Ellmer\nlibrary(dotenv)\nlibrary(ellmer)\n\nchat &lt;- chat_github(\n  model = \"gpt-4.1\",\n  system_prompt = \"You are a terse assistant.\",\n)\nchat$chat(\"What is the capital of the moon?\")\nchat$chat(\"Are you sure about that?\")"
   },
   {
     "objectID": "slides/010-welcome.html#install-setup",
@@ -110,6 +131,17 @@
     "title": "Your first chat with an LLM",
     "section": "",
     "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Your first chat with an LLM"
+    ]
+  },
+  {
+    "objectID": "030-first.html#code-from-slides",
+    "href": "030-first.html#code-from-slides",
+    "title": "Your first chat with an LLM",
+    "section": "Code from slides:",
+    "text": "Code from slides:\nOpenAI\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()  # Loads OPENAI_API_KEY from the .env file\n\n# Creates an OpenAI client, which can be used to access any OpenAI service\n# (including Whisper and DALL-E, not just chat models). It's totally stateless.\nclient = OpenAI()\n\n# The initial set of messages we'll start the conversation with: a system\n# prompt and a user prompt.\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\n# Call out to the OpenAI API to generate a response. (This is a blocking call,\n# but there are ways to do async, streaming, and async streaming as well.)\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\n\n# Print the response we just received.\nprint(response.choices[0].message.content)\n# If you want to inspect the full response, you can do so by uncommenting the\n# following line. The .dict() is helpful in getting more readable output.\n# pprint(response.dict())\n\n# The client.chat.completions.create() call is stateless. In order to carry on a\n# multi-turn conversation, we need to keep track of the messages we've sent and\n# received.\nmessages.append(response.choices[0].message)\n\n# Ask a followup question.\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()\nGitHub OpenAI\nimport os\nfrom pprint import pprint\n\nfrom dotenv import load_dotenv\nfrom openai import OpenAI\n\nload_dotenv()\n\n# arguments passed switch to using GitHub models\nclient = OpenAI(\n  api_key=os.environ[\"GITHUB_TOKEN\"],\n  base_url=\"https://models.inference.ai.azure.com\"\n)\n\nmessages = [\n    {\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n    {\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n]\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n)\nprint(response.choices[0].message.content)\n\nmessages.append(response.choices[0].message)\n\nmessages.append({\"role\": \"user\", \"content\": \"Are you sure?\"})\nresponse2 = client.chat.completions.create(\n    model=\"gpt-4.1\",\n    messages=messages,\n    stream=True,\n)\n\nfor chunk in response2:\n    print(chunk.choices[0].delta.content or \"\", end=\"\", flush=True)\nprint()\nLangchain\nfrom dotenv import load_dotenv\nfrom langchain_core.chat_history import InMemoryChatMessageHistory\nfrom langchain_core.messages import HumanMessage, SystemMessage\nfrom langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder\nfrom langchain_core.runnables.history import RunnableWithMessageHistory\nfrom langchain_openai import ChatOpenAI\n\nload_dotenv()  # Loads OPENAI_API_KEY from the .env file\n\n# Create an OpenAI chat model, with conversation history.\n# See https://python.langchain.com/docs/tutorials/chatbot/ for more information.\n\n# The underlying chat model. It doesn't manage any state, so we need to wrap it.\nmodel = ChatOpenAI(model=\"gpt-4.1\")\n\n# This is how you provide a system message in Langchain. Surprisingly\n# complicated, isn't it?\nprompt = ChatPromptTemplate.from_messages(\n    [\n        SystemMessage(\"You are a terse assistant.\"),\n        MessagesPlaceholder(variable_name=\"messages\"),\n    ]\n)\n\n# Wrap the model and prompt up with some history.\nhistory = InMemoryChatMessageHistory()\nclient = RunnableWithMessageHistory(prompt | model, lambda: history)\n\n# We're ready to chat with the model now. For this example we'll make a blocking\n# call, but there are ways to do async, streaming, and async streaming as well.\nresponse = client.invoke(\"What is the capital of the moon?\")\nprint(response.content)\n\n# The input of invoke() can be a message object as well, or a list of messages.\nresponse2 = client.invoke(HumanMessage(\"Are you sure?\"))\nprint(response2.content)\nPython Chatlas\nfrom chatlas import ChatOpenAI\nfrom dotenv import load_dotenv\n\nload_dotenv()  # Loads OPENAI_API_KEY from the .env file\n\nchat = ChatOpenAI(model=\"gpt-4.1\", system_prompt=\"You are a terse assistant.\")\n\nchat.chat(\"What is the capital of the moon?\")\n\nchat.chat(\"Are you sure?\")\nR Ellmer\nlibrary(dotenv) # Will read OPENAI_API_KEY from .env file\nlibrary(ellmer)\n\nchat &lt;- chat_openai(\n  model = \"gpt-4.1\",\n  system_prompt = \"You are a terse assistant.\",\n)\nchat$chat(\"What is the capital of the moon?\")\n\n# The `chat` object is stateful, so this continues the existing conversation\nchat$chat(\"Are you sure about that?\")",
     "crumbs": [
       "Home",
       "Your first chat with an LLM"
@@ -262,5 +294,12 @@
     "title": "Anatomy of a Conversation",
     "section": "Context window - chat history",
     "text": "Context window - chat history\n200k tokens seems like a lot of context…\n\n… but the entire chat is passed along each chat iteration\n{\"role\": \"system\", \"content\": \"You are a terse assistant.\"},\n{\"role\": \"user\", \"content\": \"What is the capital of the moon?\"},\n{\"role\": \"assistant\", \"content\": \"The moon does not have a capital. It is not inhabited or governed.\"},\n{\"role\": \"user\", \"content\": \"Are you sure?\"},\n{\"role\": \"assistant\", \"content\": \"Yes, I am sure. The moon has no capital or formal governance.\"}"
+  },
+  {
+    "objectID": "slides/020-anatomy.html#summary",
+    "href": "slides/020-anatomy.html#summary",
+    "title": "Anatomy of a Conversation",
+    "section": "Summary",
+    "text": "Summary\n\nA message is an object with:\n\nrole (e.g., “system”, “user”, “assistant”)\ncontent string\n\nA chat conversation is a growing list of messages\nThe OpenAI chat API is a stateless HTTP endpoint: takes a list of messages as input, returns a new message as output"
   }
 ]

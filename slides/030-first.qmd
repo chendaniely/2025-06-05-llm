@@ -51,7 +51,7 @@ GitHub Models: <https://github.com/marketplace/models>
 <https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits>
 
 
-## You try: OpenAI / GitHub Models {footer=false}
+## Your turn: OpenAI / GitHub Models {footer=false}
 
 {{< countdown "5:00" play_sound="true">}}
 
@@ -81,6 +81,8 @@ Each Chat API can have a different JSON payload, functions, ways to construct th
 
 ## Chatlas + Ellmer
 
+Unify the prompt creation process and steps
+
 ::: {.columns}
 ::: {.column}
 Python
@@ -99,3 +101,48 @@ R
 :::
 
 :::
+
+
+## Demo: Chatlas + Ellmer (OpenAI)
+
+Python Chatlas
+
+```python
+{{< include /../code/01-basics/chatlas.py >}}
+```
+
+R Ellmer
+
+```r
+{{< include /../code/01-basics/ellmer.R >}}
+```
+
+## Demo: Chatlas + Ellmer (Claude)
+
+Python Chatlas
+
+```python
+{{< include /../code/01-basics/chatlas-anthropic.py >}}
+```
+
+R Ellmer
+
+```r
+{{< include /../code/01-basics/ellmer-anthropic.R >}}
+```
+
+## Your turn: Chatlas Ellmer GitHub {footer=false}
+
+{{< countdown "10:00" play_sound="true">}}
+
+Python Chatlas
+
+```python
+{{< include /../code/01-basics/chatlas-github-openai.py >}}
+```
+
+R Ellmer
+
+```r
+{{< include /../code/01-basics/ellmer-github-openai.R >}}
+```

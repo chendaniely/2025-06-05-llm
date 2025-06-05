@@ -222,3 +222,11 @@ For Claude Sonnet:
 {"role": "user", "content": "Are you sure?"},
 {"role": "assistant", "content": "Yes, I am sure. The moon has no capital or formal governance."}
 ```
+
+## Summary
+
+- A message is an object with:
+  - role (e.g., “system”, “user”, “assistant”)
+  - content string
+- A chat conversation is a growing list of messages
+- The OpenAI chat API is a stateless HTTP endpoint: takes a list of messages as input, returns a new message as output
