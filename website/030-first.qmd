@@ -39,5 +39,5 @@ Python Chatlas
 R Ellmer
 
 ```r
-{{< include /../code/01-basics/ellmer.r >}}
+{{< include /../code/01-basics/ellmer.R >}}
 ```
