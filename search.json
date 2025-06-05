@@ -1,54 +1,5 @@
 [
   {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Setup",
-    "section": "",
-    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
-  },
-  {
-    "objectID": "setup.html#r-python",
-    "href": "setup.html#r-python",
-    "title": "Setup",
-    "section": "",
-    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
-  },
-  {
-    "objectID": "setup.html#ide",
-    "href": "setup.html#ide",
-    "title": "Setup",
-    "section": "IDE",
-    "text": "IDE\nI’m using Positron: https://positron.posit.co/, but feel free to use VS Code and/or RStudio"
-  },
-  {
-    "objectID": "setup.html#local-llm-ollama",
-    "href": "setup.html#local-llm-ollama",
-    "title": "Setup",
-    "section": "Local LLM: Ollama",
-    "text": "Local LLM: Ollama\n\nDownload Ollama: https://ollama.com/\nPick one of the many llama models on their model page from: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nHere are a few example models with their download sizes you can try:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4\n67GB\nhttps://ollama.com/library/llama4\nollama run llama4\n\n\nllama4:128x17b\n245GB\n-\nollama run llama4:128x17b"
-  },
-  {
-    "objectID": "setup.html#optional-chat-provider-with-api",
-    "href": "setup.html#optional-chat-provider-with-api",
-    "title": "Setup",
-    "section": "(Optional): Chat provider with API",
-    "text": "(Optional): Chat provider with API\n\nClaude\n\nSign up at https://console.anthropic.com.\nLoad up enough credit so you won’t be sad if something goes wrong.\nCreate a key at https://console.anthropic.com/settings/keys\n\n\n\nGemini\n\nLog in to https://aistudio.google.com with a google account\nClick create API key & copy it to the clipboard.\n\n\n\nOpenAI"
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025a. “Harnessing LLMs for Data Analysis.” YouTube. https://www.youtube.com/watch?v=owDd1CJ17uQ.\n\n\n———. 2025b. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nTurner, Stephen. 2025. “The Modern r Stack for Production Ai.” The Modern R Stack for Production AI - by Stephen Turner. Paired Ends. https://blog.stephenturner.us/p/r-production-ai.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
-  },
-  {
-    "objectID": "partials/schedule.html",
-    "href": "partials/schedule.html",
-    "title": "Intro to LLMs",
-    "section": "",
-    "text": "Time\nActivity\n\n\n\n\n13:30\nWelcome!\n\n\n13:45\nIntroduction and Overview\n\n\n14:15\nbreak\n\n\n14:20\nLLM Packages: Chatlas + Elmer\n\n\n15:00\nbreak\n\n\n15:15\nDemos 1\n\n\n16:00\nbreak\n\n\n16:00\nNow you try\n\n\n16:30\nEnd"
-  },
-  {
     "objectID": "slides/020-anatomy.html#llm-conversations-are-http-requests",
     "href": "slides/020-anatomy.html#llm-conversations-are-http-requests",
     "title": "Anatomy of a Conversation",
@@ -98,6 +49,41 @@
     "text": "Tokens\n\nFundamental units of information for LLMs\nWords, parts of words, or individual characters\n\n“hello” → 1 token\n“unconventional” → 3 tokens: un|con|ventional\n4K video frame at full res → 6885 tokens\n\nExample with OpenAI Tokenizer\n\nhttps://platform.openai.com/tokenizer\n\nImportant for:\n\nModel input/output limits\nAPI pricing is usually by token\n\nhttps://gptforwork.com/tools/openai-chatgpt-api-pricing-calculator"
   },
   {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
+    "section": "",
+    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
+  },
+  {
+    "objectID": "setup.html#r-python",
+    "href": "setup.html#r-python",
+    "title": "Setup",
+    "section": "",
+    "text": "Clone this repository: https://github.com/chendaniely/2025-06-05-llm\n\ngit clone https://github.com/chendaniely/2025-06-05-llm.git\ngit clone git@github.com:chendaniely/2025-06-05-llm.git\n\nUse the provided requirements.txt and renv.lock file to create the virtual environments\n\nR: you can use the setup-r Makefile target\nPython: if you have uv installed (https://docs.astral.sh/uv/) you can also use the setup-python target\nThere is a convenience make setup target that combines both for you\n\n\nmake setup"
+  },
+  {
+    "objectID": "setup.html#ide",
+    "href": "setup.html#ide",
+    "title": "Setup",
+    "section": "IDE",
+    "text": "IDE\nI’m using Positron: https://positron.posit.co/, but feel free to use VS Code and/or RStudio"
+  },
+  {
+    "objectID": "setup.html#local-llm-ollama",
+    "href": "setup.html#local-llm-ollama",
+    "title": "Setup",
+    "section": "Local LLM: Ollama",
+    "text": "Local LLM: Ollama\n\nDownload Ollama: https://ollama.com/\nPick one of the many llama models on their model page from: https://ollama.com/search.\n\nUBC has a restriction on DeekSeek\nPick any random model that will fit on your computer\nYou can pick multiple models if you’d like, we will compare results during workshop.\nHere are a few example models with their download sizes you can try:\n\n\n\n\n\nModel\nDownload Size\nURL\nInstall Command\n\n\n\n\nqwen3:0.6b\n523MB\nhttps://ollama.com/library/qwen3\nollama run qwen3:0.6b\n\n\nqwen\n5.2GB\n-\nollama run qwen3\n\n\nPhi 4 mini\n3.2GB\nhttps://ollama.com/library/phi4-reasoning\nollama run phi4-mini-reasoning\n\n\ndevstral\n14GB\nhttps://ollama.com/library/devstral\nollama run devstral\n\n\nllama4\n67GB\nhttps://ollama.com/library/llama4\nollama run llama4\n\n\nllama4:128x17b\n245GB\n-\nollama run llama4:128x17b"
+  },
+  {
+    "objectID": "setup.html#optional-chat-provider-with-api",
+    "href": "setup.html#optional-chat-provider-with-api",
+    "title": "Setup",
+    "section": "(Optional): Chat provider with API",
+    "text": "(Optional): Chat provider with API\n\nClaude\n\nSign up at https://console.anthropic.com.\nLoad up enough credit so you won’t be sad if something goes wrong.\nCreate a key at https://console.anthropic.com/settings/keys\n\n\n\nGemini\n\nLog in to https://aistudio.google.com with a google account\nClick create API key & copy it to the clipboard.\n\n\n\nOpenAI"
+  },
+  {
     "objectID": "overview.html",
     "href": "overview.html",
     "title": "Overview",
@@ -109,10 +95,70 @@
     ]
   },
   {
+    "objectID": "010-welcome.html",
+    "href": "010-welcome.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Home",
+      "Welcome!"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Intro to LLMs",
     "section": "",
     "text": "Me sharing my experiences with LLMs and what I know so far from participating in an LLM hackathon."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Aden-Buie, Garrick. 2024. “Level Up with Shiny for R.” https://github.com/posit-conf-2024/level-up-shiny.\n\n\nChen, Daniel. 2025. “PyCon 2025 Booth Demos.” https://github.com/posit-dev/pycon2025.\n\n\nCheng, Joe. 2025a. “Harnessing LLMs for Data Analysis.” YouTube. https://www.youtube.com/watch?v=owDd1CJ17uQ.\n\n\n———. 2025b. “LLM Quickstart.” https://github.com/jcheng5/llm-quickstart.\n\n\nShiny. 2025. Shiny for Python Generative AI Documentation. https://shiny.posit.co/py/docs/genai-inspiration.html.\n\n\nTurner, Stephen. 2025. “The Modern r Stack for Production Ai.” The Modern R Stack for Production AI - by Stephen Turner. Paired Ends. https://blog.stephenturner.us/p/r-production-ai.\n\n\nWickham, Hadley. 2025. “Workshop LLM Hackathon.” https://github.com/hadley/workshop-llm-hackathon."
+  },
+  {
+    "objectID": "slides/010-welcome.html#install-setup",
+    "href": "slides/010-welcome.html#install-setup",
+    "title": "Welcome!",
+    "section": "Install + Setup",
+    "text": "Install + Setup\nTake a look at the workshop website and go through the setup instructions: https://github.com/chendaniely/2025-06-05-llm\nUrl is at the bottom of all the slides.\n\nClone this repo\nInstall your R + Python packages\nDownload at least one of the Ollama models, I provided a few to pick from. Feel free to pick any other one.\n(Optional) use the .env.template file to provide your API key into .env\n\n\n\n\n\n\n\nNote\n\n\nIf you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!"
+  },
+  {
+    "objectID": "slides/010-welcome.html#passing-along-what-i-learned",
+    "href": "slides/010-welcome.html#passing-along-what-i-learned",
+    "title": "Welcome!",
+    "section": "Passing along what I learned",
+    "text": "Passing along what I learned\n\nJoe will do a better job than I can, but I can demo you code today.\nhttps://www.youtube.com/watch?v=owDd1CJ17uQ"
+  },
+  {
+    "objectID": "slides/010-welcome.html#poll-experience-with-llms",
+    "href": "slides/010-welcome.html#poll-experience-with-llms",
+    "title": "Welcome!",
+    "section": "Poll: Experience with LLMs",
+    "text": "Poll: Experience with LLMs\n\nUsed an LLM before (ChatGPT/Claude/Ollama desktop/web application)?\nUsed it for a homework assignment?\nMDS: Using for capstone?\nTasks outside of school work?\nSkeptical about LLMs/AI (1-2 out of 5)? Why?\nNeutral about LLMs/AI (3 out of 5)? Why?\nEnthusiastic about LLMs/AI (4-5 out of 5)? Why?"
+  },
+  {
+    "objectID": "slides/010-welcome.html#today",
+    "href": "slides/010-welcome.html#today",
+    "title": "Welcome!",
+    "section": "Today",
+    "text": "Today\n\nMDS: taught you how things work behind the scenes (transformers!)\nToday, we will treat LLMs as black boxes\nPractical introduction\nGet some hands on practice to demystify using them\n\nMDS: Maybe you can throw in something extra for the end of your capstone projects?"
+  },
+  {
+    "objectID": "slides/010-welcome.html#goal",
+    "href": "slides/010-welcome.html#goal",
+    "title": "Welcome!",
+    "section": "Goal",
+    "text": "Goal\nQuick Start course on LLMs. You will leave having used a Chat API.\n\nMDS: if you made something cool from what you learned today, share it in #llm-workshop-hackathon\n\nDoesn’t have to be “successful”\nWe’re just here trying to make cool things\nShare so we can learn about the limitations\n\nDSCI 100: We can always chat during office hours"
+  },
+  {
+    "objectID": "slides/010-welcome.html#security",
+    "href": "slides/010-welcome.html#security",
+    "title": "Welcome!",
+    "section": "Security",
+    "text": "Security\n\nDO NOT send proprietary code or data to any LLM, unless you are sure IT policies allow it\nLocal models (e.g., Ollama) typically perform worse than frontier models"
   }
 ]

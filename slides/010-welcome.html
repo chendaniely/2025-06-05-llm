@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.31">
 
-  <title>Intro to LLMs – Welcome and Introduction</title>
+  <title>Intro to LLMs – Welcome!</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -32,8 +32,6 @@
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -128,14 +126,85 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Welcome and Introduction</h1>
+  <h1 class="title">Welcome!</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section class="slide level2">
+<section id="install-setup" class="slide level2">
+<h2>Install + Setup</h2>
+<p>Take a look at the workshop website and go through the setup instructions: <a href="https://github.com/chendaniely/2025-06-05-llm" class="uri">https://github.com/chendaniely/2025-06-05-llm</a></p>
+<p>Url is at the bottom of all the slides.</p>
+<ol type="1">
+<li>Clone this repo</li>
+<li>Install your R + Python packages</li>
+<li>Download at least one of the Ollama models, I provided a few to pick from. Feel free to pick any other one.</li>
+<li>(Optional) use the <code>.env.template</code> file to provide your API key into <code>.env</code></li>
+</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>If you pay for Claude, OpenAI, etc access with their web/desktop application, this is a separate purchase for the API key. Depending on your usage, you may even find that paying for the API key could be cheaper!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-along-what-i-learned" class="slide level2">
+<h2>Passing along what I learned</h2>
 
+<img data-src="../img/youtube-joe-llm.png" class="r-stretch"><p>Joe will do a better job than I can, but I can demo you code today.</p>
+<p><a href="https://www.youtube.com/watch?v=owDd1CJ17uQ" class="uri">https://www.youtube.com/watch?v=owDd1CJ17uQ</a></p>
+</section>
+<section id="poll-experience-with-llms" class="slide level2">
+<h2>Poll: Experience with LLMs</h2>
+<ol type="1">
+<li class="fragment"><p>Used an LLM before (ChatGPT/Claude/Ollama desktop/web application)?</p></li>
+<li class="fragment"><p>Used it for a homework assignment?</p></li>
+<li class="fragment"><p>MDS: Using for capstone?</p></li>
+<li class="fragment"><p>Tasks outside of school work?</p></li>
+<li class="fragment"><p>Skeptical about LLMs/AI (1-2 out of 5)? Why?</p></li>
+<li class="fragment"><p>Neutral about LLMs/AI (3 out of 5)? Why?</p></li>
+<li class="fragment"><p>Enthusiastic about LLMs/AI (4-5 out of 5)? Why?</p></li>
+</ol>
+</section>
+<section id="today" class="slide level2">
+<h2>Today</h2>
+<ul>
+<li>MDS: taught you how things work behind the scenes (transformers!)</li>
+<li>Today, we will treat LLMs as black boxes</li>
+<li>Practical introduction</li>
+<li>Get some hands on practice to demystify using them
+<ul>
+<li>MDS: Maybe you can throw in something extra for the end of your capstone projects?</li>
+</ul></li>
+</ul>
+</section>
+<section id="goal" class="slide level2">
+<h2>Goal</h2>
+<p>Quick Start course on LLMs. You will leave having used a Chat API.</p>
+<ul>
+<li>MDS: if you made something cool from what you learned today, share it in <code>#llm-workshop-hackathon</code>
+<ul>
+<li>Doesn’t have to be “successful”</li>
+<li>We’re just here <strong>trying</strong> to make cool things</li>
+<li>Share so we can learn about the limitations</li>
+</ul></li>
+<li>DSCI 100: We can always chat during office hours</li>
+</ul>
+</section>
+<section id="security" class="slide level2">
+<h2>Security</h2>
+<ul>
+<li><strong>DO NOT</strong> send proprietary code or data to any LLM, unless you are sure IT policies allow it</li>
+<li>Local models (e.g., Ollama) typically perform worse than frontier models</li>
+</ul>
 
 
 </section>
@@ -153,7 +222,6 @@
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -175,8 +243,7 @@
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': true,
  
         // Display controls in the bottom right corner
@@ -347,7 +414,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
