@@ -99,8 +99,6 @@
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -238,12 +236,14 @@
 <span id="cb1-9"><a></a><span class="st">    ]</span></span>
 <span id="cb1-10"><a></a><span class="st">}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
+<li>Model: model used</li>
 <li>System prompt: behind-the-scenes instructions and information for the model</li>
 <li>User prompt: a question or statement for the model to respond to</li>
 </ul>
 </section>
-<section id="example-response-abridged" class="slide level2">
-<h2>Example Response (abridged)</h2>
+<section id="example-response" class="slide level2">
+<h2>Example Response</h2>
+<p>Abridged response:</p>
 <div class="sourceCode" id="cb2" data-code-line-numbers="|3-6|7|12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a></a><span class="fu">{</span></span>
 <span id="cb2-2"><a></a>  <span class="dt">"choices"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
 <span id="cb2-3"><a></a>    <span class="dt">"message"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -261,9 +261,14 @@
 <span id="cb2-15"><a></a>    <span class="fu">}</span></span>
 <span id="cb2-16"><a></a>  <span class="fu">}</span></span>
 <span id="cb2-17"><a></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Assistant: Response from model</li>
+<li>Why did the model stop responding</li>
+<li>Tokens: “words” used in the input and output</li>
+</ul>
 </section>
-<section id="example-request-1" class="slide level2">
-<h2>Example Request</h2>
+<section id="example-followup-request" class="slide level2">
+<h2>Example Followup Request</h2>
 <div class="sourceCode" id="cb3" data-code-line-numbers="|9|10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">curl</span> https://api.openai.com/v1/chat/completions <span class="dt">\</span></span>
 <span id="cb3-2"><a></a>  <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
 <span id="cb3-3"><a></a>  <span class="at">-H</span> <span class="st">"Authorization: Bearer </span><span class="va">$OPENAI_API_KEY</span><span class="st">"</span> <span class="dt">\</span></span>
@@ -276,9 +281,13 @@
 <span id="cb3-10"><a></a><span class="st">      {"role": "user", "content": "Are you sure?"}</span></span>
 <span id="cb3-11"><a></a><span class="st">    ]</span></span>
 <span id="cb3-12"><a></a><span class="st">}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>The entire history is re-passed into the request</li>
+</ul>
 </section>
-<section id="example-response-abridged-1" class="slide level2">
-<h2>Example Response (abridged)</h2>
+<section id="example-followup-response" class="slide level2">
+<h2>Example Followup Response</h2>
+<p>Abridged Response:</p>
 <div class="sourceCode" id="cb4" data-code-line-numbers="|3-6|10-12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a></a><span class="fu">{</span></span>
 <span id="cb4-2"><a></a>  <span class="dt">"choices"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
 <span id="cb4-3"><a></a>    <span class="dt">"message"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -296,32 +305,93 @@
 <span id="cb4-15"><a></a>    <span class="fu">}</span></span>
 <span id="cb4-16"><a></a>  <span class="fu">}</span></span>
 <span id="cb4-17"><a></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Previous usage:</p>
+<div class="sourceCode" id="cb5" data-code-line-numbers="2-4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a></a>  <span class="er">"usage":</span> <span class="fu">{</span></span>
+<span id="cb5-2"><a></a>    <span class="dt">"prompt_tokens"</span><span class="fu">:</span> <span class="dv">9</span><span class="fu">,</span></span>
+<span id="cb5-3"><a></a>    <span class="dt">"completion_tokens"</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
+<span id="cb5-4"><a></a>    <span class="dt">"total_tokens"</span><span class="fu">:</span> <span class="dv">21</span><span class="fu">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="tokens" class="slide level2">
 <h2>Tokens</h2>
 <ul>
-<li class="fragment">Fundamental units of information for LLMs</li>
-<li class="fragment">Words, parts of words, or individual characters
+<li><p>Fundamental units of information for LLMs</p></li>
+<li><p>Words, parts of words, or individual characters</p></li>
+<li><p>Important for:</p>
 <ul>
-<li class="fragment">“hello” → 1 token</li>
-<li class="fragment">“unconventional” → 3 tokens: <code>un|con|ventional</code></li>
-<li class="fragment">4K video frame at full res → 6885 tokens</li>
-</ul></li>
-<li class="fragment">Example with OpenAI Tokenizer
+<li>Model input/output limits</li>
+<li>API pricing is usually by token
 <ul>
-<li class="fragment"><a href="https://platform.openai.com/tokenizer" class="uri">https://platform.openai.com/tokenizer</a></li>
-</ul></li>
-<li class="fragment">Important for:
-<ul>
-<li class="fragment">Model input/output limits</li>
-<li class="fragment">API pricing is usually by token
-<ul>
-<li class="fragment"><a href="https://gptforwork.com/tools/openai-chatgpt-api-pricing-calculator" class="uri">https://gptforwork.com/tools/openai-chatgpt-api-pricing-calculator</a></li>
+<li><a href="https://gptforwork.com/tools/openai-chatgpt-api-pricing-calculator" class="uri">https://gptforwork.com/tools/openai-chatgpt-api-pricing-calculator</a></li>
 </ul></li>
 </ul></li>
 </ul>
+<p>Try it yourself:</p>
+<ul>
+<li><a href="https://tiktokenizer.vercel.app/" class="uri">https://tiktokenizer.vercel.app/</a></li>
+<li><a href="https://platform.openai.com/tokenizer" class="uri">https://platform.openai.com/tokenizer</a></li>
+</ul>
+</section>
+<section id="token-example" class="slide level2">
+<h2>Token example</h2>
+<p>Common words represented with a single number:</p>
+<ul>
+<li class="fragment">What is the capital of the moon?</li>
+<li class="fragment">4827, 382, 290, 9029, 328, 290, 28479, 30</li>
+<li class="fragment">8 tokens total (including punctuation)</li>
+</ul>
+<div class="fragment">
+<p>Other words may require multiple numbers</p>
+<ul>
+<li class="fragment">counterrevolutionary</li>
+<li class="fragment">counter, re, volution, ary</li>
+<li class="fragment">32128, 264, 9477, 815</li>
+<li class="fragment">4 tokens total</li>
+</ul>
+</div>
+</section>
+<section id="token-pricing-anthropic" class="slide level2">
+<h2>Token pricing (Anthropic)</h2>
+<p><a href="https://www.anthropic.com/pricing" class="uri">https://www.anthropic.com/pricing</a> -&gt; API tab</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="../img/anthropic-pricing.png"></p>
+</div><div class="column" style="width:40%;">
+<p>Claude Sonnet 4</p>
+<ul>
+<li>Input: $3 / million tokens</li>
+<li>Output: $15 / million tokens</li>
+<li>Context window: 200k</li>
+</ul>
+</div></div>
+</section>
+<section id="context-window" class="slide level2">
+<h2>Context window</h2>
+<ul>
+<li>Determines how much input can be incorporated into each output</li>
+<li>How much of the current history the agent has in the response</li>
+</ul>
+<p>For Claude Sonnet:</p>
+<ul>
+<li>200k token context window</li>
+<li>150,000 words / 300 - 600 pages / 1.5 - 2 novels</li>
+<li>“Gödel, Escher, Bach” ~ 67,755 words</li>
+</ul>
+</section>
+<section id="context-window---chat-history" class="slide level2">
+<h2>Context window - chat history</h2>
+<p>200k tokens <em>seems</em> like a lot of context…</p>
+<div class="fragment">
+<p>… but the entire chat is passed along each chat iteration</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a></a><span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"system"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"You are a terse assistant."</span><span class="fu">}</span><span class="er">,</span></span>
+<span id="cb6-2"><a></a><span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"user"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"What is the capital of the moon?"</span><span class="fu">}</span><span class="er">,</span></span>
+<span id="cb6-3"><a></a><span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"assistant"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"The moon does not have a capital. It is not inhabited or governed."</span><span class="fu">}</span><span class="er">,</span></span>
+<span id="cb6-4"><a></a><span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"user"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"Are you sure?"</span><span class="fu">}</span><span class="er">,</span></span>
+<span id="cb6-5"><a></a><span class="fu">{</span><span class="dt">"role"</span><span class="fu">:</span> <span class="st">"assistant"</span><span class="fu">,</span> <span class="dt">"content"</span><span class="fu">:</span> <span class="st">"Yes, I am sure. The moon has no capital or formal governance."</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -337,7 +407,6 @@
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -359,8 +428,7 @@
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': true,
  
         // Display controls in the bottom right corner
@@ -531,7 +599,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
